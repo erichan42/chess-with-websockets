@@ -7,8 +7,12 @@ export default class StartButton extends Component {
   }
 
   generateGame() {
+    const code = { code: '59FQ92' }
     const url = "/api/game";
-    fetch(url)
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(code)
+    })
       .then((res) => res.json())
       .then(
         (result) => {
