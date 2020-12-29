@@ -1,0 +1,1 @@
+web: cd ./app/routes/react && npm run build && cd ../../.. && flask run
