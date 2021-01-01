@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
-import Home from './Views/Home/Home'
+import { Home, Chess } from "./Views/index"
 
 export default class App extends Component {
   render() {
@@ -17,16 +17,11 @@ export default class App extends Component {
       <Router>
         <div>
           
-          <Home />
           <Switch>
             <Route>
               <Switch>
-                <Route exact path="/">
-                  <p>Home</p>
-                </Route>
-                <Route exact path="/page2">
-                  <p>Page 2</p>
-                </Route>
+                <Route exact path="/" component={Home} />
+                <Route path="/:code" component={Chess} />
               </Switch>
             </Route>
           </Switch>

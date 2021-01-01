@@ -1,38 +1,30 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import "./StartButton.css";
 
 export default class StartButton extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      port: 0,
+      client: null,
+    };
   }
 
   generateGame() {
-    const code = { code: '59FQ92' }
-    const url = "/api/game";
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(code)
-    })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          console.error(error)
-        }
-      );
+    let randomCode = "59FQ92";
+    return randomCode;
   }
 
   render() {
     return (
       <>
-        <div className="startbutton-object" onClick={this.generateGame}>
-          <h1>Generate Game</h1>
-        </div>
+        <Link to={`/${this.generateGame()}`}>
+          <div className="startbutton-object">
+            <h1>Generate Game</h1>
+          </div>
+        </Link>
       </>
     );
   }
